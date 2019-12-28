@@ -3,7 +3,7 @@ name: Java CI
 on:
   push:
     branches:
-      - 'release/v*'
+      - master
 
 jobs:
   build:
@@ -16,5 +16,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Set up JFrog CLI
+      uses: jvalkeal/spring-build-action@develop
+      with:
+        jfrog-cli-version: 1.32.4
     - name: Build with Maven
-      run: mvn -B package
+      run: jfrog rt mvn -B clean package
