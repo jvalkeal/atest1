@@ -35,6 +35,10 @@ jobs:
       run: |
         find .
 
+    - name: List env
+      run: |
+        env
+
     - name: Publish build info
       run: |
         jfrog rt bp --server-id spring
