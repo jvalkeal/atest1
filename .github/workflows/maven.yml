@@ -25,7 +25,7 @@ jobs:
         JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
 
     - run: |
-        jfrog rt ping --server-id local-SPRING
+        jfrog rt ping --server-id spring
 
     - name: Build with Maven
       run: jfrog rt mvn -B clean package
