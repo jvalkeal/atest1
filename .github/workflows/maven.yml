@@ -18,19 +18,14 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Set up Spring Build
-      uses: jvalkeal/spring-build-action@master
+    - uses: jfrog/setup-jfrog-cli@v1
       with:
-        jfrog-cli-version: 1.32.4
-        artifactory-url: https://repo.spring.io
-        artifactory-username: ${{secrets.ARTIFACTORY_USERNAME}}
-        artifactory-password: ${{secrets.ARTIFACTORY_PASSWORD}}
+        version: 1.32.4
+      env:
+        JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
 
-    - name: Print stuff1
-      run: find .
-
-    - name: Print stuff2
-      run: env
+    - run: |
+        jfrog rt ping --server-id local-SPRING
 
     - name: Build with Maven
       run: jfrog rt mvn -B clean package
