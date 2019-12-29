@@ -39,6 +39,10 @@ jobs:
       run: |
         env
 
+    - name: List build-info
+      run: |
+        cat ./target/build-info.json
+
     - name: Publish build info
       run: |
         jfrog rt bp --server-id spring
