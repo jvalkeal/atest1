@@ -1,0 +1,6 @@
+version: 1
+type: gradle
+deployer:
+  repo: test-libs-snapshot-local
+  serverId: local
+  deployMavenDescriptors: true
