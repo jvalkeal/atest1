@@ -1,6 +1,6 @@
 version: 1
 type: maven
 deployer:
-  serverId: local
+  serverId: spring
   snapshotRepo: test-libs-snapshot-local
   releaseRepo: test-libs-snapshot-local
