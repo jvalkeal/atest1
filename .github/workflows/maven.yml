@@ -12,13 +12,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Set up JFrog CLI
+
+    - name: Set up Spring Build
       uses: jvalkeal/spring-build-action@master
       with:
         jfrog-cli-version: 1.32.4
+        artifactory-url: https://repo.spring.io
+        artifactory-username: ${{secrets.ARTIFACTORY_USERNAME}}
+        artifactory-password: ${{secrets.ARTIFACTORY_PASSWORD}}
+
+    - name: Print stuff1
+      run: find .
+
+    - name: Print stuff2
+      run: env
+
     - name: Build with Maven
       run: jfrog rt mvn -B clean package
+
