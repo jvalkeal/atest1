@@ -28,5 +28,8 @@ jobs:
         jfrog rt ping --server-id spring
 
     - name: Build with Maven
-      run: jfrog rt mvn -B clean package
+      run: jfrog rt mvn -B clean install
+
+    - name: Publish Build Info
+      run: jfrog rt bp
 
