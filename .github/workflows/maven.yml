@@ -24,25 +24,7 @@ jobs:
       env:
         JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
 
-    - run: |
-        jfrog rt ping --server-id spring
+    - uses: jvalkeal/spring-build-action@master
+      with:
+        use-wrapper: true
 
-    - name: Build with Maven
-      run: |
-        jfrog rt mvn -B clean install
-
-    - name: List files
-      run: |
-        find .
-
-    - name: List env
-      run: |
-        env
-
-    - name: List build-info
-      run: |
-        cat ./target/build-info.json
-
-    - name: Publish build info
-      run: |
-        jfrog rt bp --server-id spring
