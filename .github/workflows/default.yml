@@ -18,18 +18,3 @@ jobs:
       with:
         java-version: 1.8
 
-    - uses: jfrog/setup-jfrog-cli@v1
-      with:
-        version: 1.33.1
-      env:
-        JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
-
-    - uses: jvalkeal/spring-build-action@master
-      with:
-        maven-version: 3.6.2
-
-    - name: maven home
-      run: echo $M2_HOME
-
-    - name: maven home
-      run: mvn -v
