@@ -20,11 +20,16 @@ jobs:
 
     - uses: jfrog/setup-jfrog-cli@v1
       with:
-        version: 1.32.4
+        version: 1.33
       env:
         JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
 
     - uses: jvalkeal/spring-build-action@master
       with:
-        use-wrapper: true
+        maven-version: 3.6.2
 
+    - name: maven home
+      run: echo $M2_HOME
+
+    - name: maven home
+      run: mvn -v
