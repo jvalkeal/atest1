@@ -31,5 +31,11 @@ jobs:
     - name: maven home
       run: echo $M2_HOME
 
-    - name: maven home
+    - name: maven version
       run: mvn -v
+
+    - name: gradle home
+      run: echo $GRADLE_HOME
+
+    - name: gradle version
+      run: gradle -v
