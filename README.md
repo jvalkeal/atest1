@@ -2,4 +2,3 @@
 
 line1
 xxx
-xxx
