@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+      uses: jvalkeal/setup-java@gh40-work1
       with:
         java-version: 1.8
 
@@ -23,11 +23,6 @@ jobs:
         version: 1.33.1
       env:
         JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
-
-    - uses: jvalkeal/spring-build-action@master
-      with:
-        maven-version: 3.6.2
-        gradle-version: 5.6.3
 
     - name: maven home
       run: echo $M2_HOME
