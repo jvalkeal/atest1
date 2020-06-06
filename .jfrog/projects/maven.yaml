@@ -1,6 +1,0 @@
-version: 1
-type: maven
-deployer:
-  serverId: local
-  snapshotRepo: libs-snapshot-local
-  releaseRepo: libs-release-local
