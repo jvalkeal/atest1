@@ -34,7 +34,7 @@ jobs:
       env:
         JF_ARTIFACTORY_SPRING: ${{ secrets.JF_ARTIFACTORY_SECRET_SPRING }}
 
-    - uses: jvalkeal/setup-cf-cli-action@v0
+    - uses: jvalkeal/setup-cf-cli@v0
       with:
         version: 6.51.0
         architecture: linux64
