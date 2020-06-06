@@ -19,12 +19,12 @@ jobs:
         java-version: 1.8
 
     - name: Set Maven
-      uses: jvalkeal/setup-maven@master
+      uses: jvalkeal/setup-maven@v1
       with:
         maven-version: 3.6.1
 
     - name: Set Gradle
-      uses: jvalkeal/setup-gradle@master
+      uses: jvalkeal/setup-gradle@v1
       with:
         gradle-version: 5.6.2
 
