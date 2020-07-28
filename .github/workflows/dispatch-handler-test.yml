@@ -45,9 +45,6 @@ jobs:
               "owner": "jvalkeal",
               "repo": "atest2",
               "event_type": "build-zoo-handler",
-              "data": {
-                "prop21": "${{ steps.extract.outputs.PROP21 }}"
-              }
             },
             {
               "on_event": "build-succeed",
