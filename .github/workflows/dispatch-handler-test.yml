@@ -1,4 +1,4 @@
-name: Dispatch Handler Test
+name: Dispatch Handler Test2
 
 on:
   workflow_dispatch:
