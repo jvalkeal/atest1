@@ -32,7 +32,7 @@ jobs:
       id: extract
       env:
         PROP21: ${{ github.event.inputs.prop21 }}
-      run: echo ::set-output name=PROP21::echo ${PROP21:-val21}
+      run: echo ::set-output name=PROP21::${PROP21:-val21}
 
     - name: Fire jvalkeal/atest2
       uses: jvalkeal/build-zoo-handler@gh7-work1
