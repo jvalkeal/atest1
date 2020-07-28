@@ -15,8 +15,8 @@ on:
         description: 'prop41'
         required: false
         default: 'val41'
-  repository_dispatch:
-    types: [build-zoo-handler]
+  # repository_dispatch:
+  #   types: [build-zoo-handler]
 
 jobs:
   build:
