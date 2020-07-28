@@ -28,33 +28,36 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
-    # - name: Do Something
-    #   id: extract
-    #   env:
-    #     PROP21: ${{ github.event.inputs.prop21 }}
-    #   run: echo ::set-output name=PROP21::echo ${PROP21:-val21}
+    - name: Do Something
+      id: extract
+      env:
+        PROP21: ${{ github.event.inputs.prop21 }}
+      run: echo ::set-output name=PROP21::echo ${PROP21:-val21}
 
-    # - name: Fire jvalkeal/atest2
-    #   uses: jvalkeal/build-zoo-handler@gh7-work1
-    #   with:
-    #     dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
-    #     dispatch-handler-config: >
-    #       [
-    #         {
-    #           "on_event": "initial",
-    #           "owner": "jvalkeal",
-    #           "repo": "atest2",
-    #           "event_type": "build-zoo-handler",
-    #         },
-    #         {
-    #           "on_event": "build-succeed",
-    #           "on_owner": "jvalkeal",
-    #           "on_repo": "atest2",
-    #           "owner": "jvalkeal",
-    #           "repo": "atest4",
-    #           "event_type": "build-zoo-handler"
-    #         }
-    #       ]
+    - name: Fire jvalkeal/atest2
+      uses: jvalkeal/build-zoo-handler@gh7-work1
+      with:
+        dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        dispatch-handler-config: >
+          [
+            {
+              "on_event": "initial",
+              "owner": "jvalkeal",
+              "repo": "atest2",
+              "event_type": "build-zoo-handler",
+              "data": {
+                "prop21": "${{ steps.extract.outputs.PROP21 }}"
+              }
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest2",
+              "owner": "jvalkeal",
+              "repo": "atest4",
+              "event_type": "build-zoo-handler"
+            }
+          ]
 
     # - name: Fire jvalkeal/atest2
     #   uses: peter-evans/repository-dispatch@v1
