@@ -46,7 +46,7 @@ jobs:
       if: github.event.client_payload.build_zoo_handler.repo == 'jvalkeal/atest2' && github.event.client_payload.build_zoo_handler.action == 'build-succeed'
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: jvalkeal/atest2
+        repository: jvalkeal/atest4
         event-type: build-zoo-handler
         client-payload: '{"repo": "jvalkeal/atest1", "action": "build-start"}'
 
