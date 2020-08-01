@@ -16,7 +16,7 @@ on:
         required: false
         default: 'val41'
   repository_dispatch:
-    types: [build-zoo-handler]
+    types: [build-zoo-handler-control]
 
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
               "default": true,
               "owner": "jvalkeal",
               "repo": "atest4",
-              "event_type": "build-zoo-handler"
+              "event_type": "build-zoo-handler-build"
             },
             {
               "on_event": "build-succeed",
@@ -52,7 +52,7 @@ jobs:
               "on_repo": "atest4",
               "owner": "jvalkeal",
               "repo": "atest3",
-              "event_type": "build-zoo-handler"
+              "event_type": "build-zoo-handler-build"
             },
             {
               "on_event": "build-succeed",
@@ -60,7 +60,7 @@ jobs:
               "on_repo": "atest3",
               "owner": "jvalkeal",
               "repo": "atest2",
-              "event_type": "build-zoo-handler"
+              "event_type": "build-zoo-handler-build"
             },
             {
               "on_event": "build-succeed",
@@ -68,7 +68,7 @@ jobs:
               "on_repo": "atest2",
               "owner": "jvalkeal",
               "repo": "atest1",
-              "event_type": "build-zoo-handler"
+              "event_type": "build-zoo-handler-build"
             }
           ]
 
