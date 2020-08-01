@@ -41,7 +41,6 @@ jobs:
         dispatch-handler-config: >
           [
             {
-              "on_event": "initial",
               "owner": "jvalkeal",
               "repo": "atest2",
               "event_type": "build-zoo-handler",
