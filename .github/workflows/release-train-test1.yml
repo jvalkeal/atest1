@@ -1,4 +1,4 @@
-name: Dispatch Handler Test2
+name: Release Train Test1
 
 on:
   workflow_dispatch:
