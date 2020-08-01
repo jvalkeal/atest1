@@ -1,0 +1,84 @@
+name: Dispatch Handler Test2
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-zoo-handler:
+        description: 'start'
+        required: false
+        default: 'false'
+      prop21:
+        description: 'prop21'
+        required: false
+        default: 'val21'
+      prop41:
+        description: 'prop41'
+        required: false
+        default: 'val41'
+  repository_dispatch:
+    types: [build-zoo-handler]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+
+    - name: Do Something
+      id: extract
+      env:
+        PROP21: ${{ github.event.inputs.prop21 }}
+      run: echo ::set-output name=PROP21::${PROP21:-val21}
+
+    - name: Fire jvalkeal/atest2
+      uses: jvalkeal/build-zoo-handler@gh7-work1
+      with:
+        dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        dispatch-handler-config: >
+          [
+            {
+              "default": true,
+              "owner": "jvalkeal",
+              "repo": "atest2",
+              "event_type": "build-zoo-handler"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest2",
+              "owner": "jvalkeal",
+              "repo": "atest4",
+              "event_type": "build-zoo-handler"
+            }
+          ]
+
+    # "data": {
+    #   "prop21": "${{ steps.extract.outputs.PROP21 }}"
+    # }
+
+    # - name: Fire jvalkeal/atest2
+    #   uses: peter-evans/repository-dispatch@v1
+    #   if: github.event.inputs.start == 'true'
+    #   with:
+    #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
+    #     repository: jvalkeal/atest2
+    #     event-type: build-zoo-handler
+    #     client-payload: '{"repo": "jvalkeal/atest1", "action": "build-start"}'
+
+    #     workflow-dispatch-owner: jvalkeal
+    #     workflow-dispatch-repo: atest2
+    #     workflow-dispatch-action: build-start
+
+    # - name: Fire jvalkeal/atest4
+    #   uses: peter-evans/repository-dispatch@v1
+    #   if: github.event.client_payload.build_zoo_handler.repo == 'jvalkeal/atest2' && github.event.client_payload.build_zoo_handler.action == 'build-succeed'
+    #   with:
+    #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
+    #     repository: jvalkeal/atest4
+    #     event-type: build-zoo-handler
+    #     client-payload: '{"repo": "jvalkeal/atest1", "action": "build-start"}'
+
