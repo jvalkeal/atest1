@@ -41,12 +41,10 @@ jobs:
         dispatch-handler-config: >
           [
             {
+              "default": true,
               "owner": "jvalkeal",
               "repo": "atest2",
-              "event_type": "build-zoo-handler",
-              "data": {
-                "prop21": "${{ steps.extract.outputs.PROP21 }}"
-              }
+              "event_type": "build-zoo-handler"
             },
             {
               "on_event": "build-succeed",
@@ -57,6 +55,10 @@ jobs:
               "event_type": "build-zoo-handler"
             }
           ]
+
+    # "data": {
+    #   "prop21": "${{ steps.extract.outputs.PROP21 }}"
+    # }
 
     # - name: Fire jvalkeal/atest2
     #   uses: peter-evans/repository-dispatch@v1
