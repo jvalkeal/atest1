@@ -34,7 +34,8 @@ jobs:
       uses: jvalkeal/build-zoo-handler@gh7-work1
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        # dispatch-handler-config: >
+        dispatch-handler-config: >
+          []
         #   [
         #     {
         #       "default": true,
