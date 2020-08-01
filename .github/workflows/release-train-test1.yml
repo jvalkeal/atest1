@@ -43,6 +43,22 @@ jobs:
             {
               "default": true,
               "owner": "jvalkeal",
+              "repo": "atest4",
+              "event_type": "build-zoo-handler"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest4",
+              "owner": "jvalkeal",
+              "repo": "atest3",
+              "event_type": "build-zoo-handler"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest3",
+              "owner": "jvalkeal",
               "repo": "atest2",
               "event_type": "build-zoo-handler"
             },
@@ -51,7 +67,7 @@ jobs:
               "on_owner": "jvalkeal",
               "on_repo": "atest2",
               "owner": "jvalkeal",
-              "repo": "atest4",
+              "repo": "atest1",
               "event_type": "build-zoo-handler"
             }
           ]
@@ -59,26 +75,3 @@ jobs:
     # "data": {
     #   "prop21": "${{ steps.extract.outputs.PROP21 }}"
     # }
-
-    # - name: Fire jvalkeal/atest2
-    #   uses: peter-evans/repository-dispatch@v1
-    #   if: github.event.inputs.start == 'true'
-    #   with:
-    #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
-    #     repository: jvalkeal/atest2
-    #     event-type: build-zoo-handler
-    #     client-payload: '{"repo": "jvalkeal/atest1", "action": "build-start"}'
-
-    #     workflow-dispatch-owner: jvalkeal
-    #     workflow-dispatch-repo: atest2
-    #     workflow-dispatch-action: build-start
-
-    # - name: Fire jvalkeal/atest4
-    #   uses: peter-evans/repository-dispatch@v1
-    #   if: github.event.client_payload.build_zoo_handler.repo == 'jvalkeal/atest2' && github.event.client_payload.build_zoo_handler.action == 'build-succeed'
-    #   with:
-    #     token: ${{ secrets.REPO_ACCESS_TOKEN }}
-    #     repository: jvalkeal/atest4
-    #     event-type: build-zoo-handler
-    #     client-payload: '{"repo": "jvalkeal/atest1", "action": "build-start"}'
-
