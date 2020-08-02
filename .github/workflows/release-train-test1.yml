@@ -49,37 +49,21 @@ jobs:
               "owner": "jvalkeal",
               "repo": "atest3",
               "event_type": "build-zoo-handler-build"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest3",
+              "owner": "jvalkeal",
+              "repo": "atest2",
+              "event_type": "build-zoo-handler-build"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest2",
+              "owner": "jvalkeal",
+              "repo": "atest1",
+              "event_type": "build-zoo-handler-build"
             }
           ]
-        #   [
-        #     {
-        #       "default": true,
-        #       "owner": "jvalkeal",
-        #       "repo": "atest4",
-        #       "event_type": "build-zoo-handler-build"
-        #     },
-        #     {
-        #       "on_event": "build-succeed",
-        #       "on_owner": "jvalkeal",
-        #       "on_repo": "atest4",
-        #       "owner": "jvalkeal",
-        #       "repo": "atest3",
-        #       "event_type": "build-zoo-handler-build"
-        #     },
-        #     {
-        #       "on_event": "build-succeed",
-        #       "on_owner": "jvalkeal",
-        #       "on_repo": "atest3",
-        #       "owner": "jvalkeal",
-        #       "repo": "atest2",
-        #       "event_type": "build-zoo-handler-build"
-        #     },
-        #     {
-        #       "on_event": "build-succeed",
-        #       "on_owner": "jvalkeal",
-        #       "on_repo": "atest2",
-        #       "owner": "jvalkeal",
-        #       "repo": "atest1",
-        #       "event_type": "build-zoo-handler-build"
-        #     }
-        #   ]
