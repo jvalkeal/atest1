@@ -72,7 +72,7 @@ jobs:
             "event": "build-succeed",
             "prop41": "val41",
             "owner": "jvalkeal",
-            "repo": "atest3",
+            "repo": "atest1",
             "properties": {
               "atest1_version": "${{ steps.build.outputs.RELEASE_VERSION }}"
             }
