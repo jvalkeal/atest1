@@ -35,7 +35,22 @@ jobs:
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
-          []
+          [
+            {
+              "default": true,
+              "owner": "jvalkeal",
+              "repo": "atest4",
+              "event_type": "build-zoo-handler-build"
+            },
+            {
+              "on_event": "build-succeed",
+              "on_owner": "jvalkeal",
+              "on_repo": "atest4",
+              "owner": "jvalkeal",
+              "repo": "atest3",
+              "event_type": "build-zoo-handler-build"
+            }
+          ]
         #   [
         #     {
         #       "default": true,
@@ -68,7 +83,3 @@ jobs:
         #       "event_type": "build-zoo-handler-build"
         #     }
         #   ]
-
-    # "data": {
-    #   "prop21": "${{ steps.extract.outputs.PROP21 }}"
-    # }
