@@ -43,7 +43,7 @@ jobs:
               "event_type": "build-zoo-handler-build"
             },
             {
-              "if": "event == 'data.build-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
+              "if": "data.event == 'build-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
               "owner": "jvalkeal",
               "repo": "atest3",
               "event_type": "build-zoo-handler-build"
