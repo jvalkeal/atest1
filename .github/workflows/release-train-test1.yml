@@ -37,33 +37,64 @@ jobs:
         dispatch-handler-config: >
           [
             {
-              "default": true,
+              "if": "default == true",
               "owner": "jvalkeal",
               "repo": "atest4",
               "event_type": "build-zoo-handler-build"
             },
             {
-              "on_event": "build-succeed",
-              "on_owner": "jvalkeal",
-              "on_repo": "atest4",
+              "if": "event == 'build-succeed' && repo == 'atest4' && owner == 'jvalkeal'",
               "owner": "jvalkeal",
               "repo": "atest3",
               "event_type": "build-zoo-handler-build"
-            },
-            {
-              "on_event": "build-succeed",
-              "on_owner": "jvalkeal",
-              "on_repo": "atest3",
-              "owner": "jvalkeal",
-              "repo": "atest2",
-              "event_type": "build-zoo-handler-build"
-            },
-            {
-              "on_event": "build-succeed",
-              "on_owner": "jvalkeal",
-              "on_repo": "atest2",
-              "owner": "jvalkeal",
-              "repo": "atest1",
-              "event_type": "build-zoo-handler-build"
             }
           ]
+
+
+        # {
+        #   "if": "event == 'build-succeed' && repo == 'atest3' && owner == 'jvalkeal'",
+        #   "owner": "jvalkeal",
+        #   "repo": "atest2",
+        #   "event_type": "build-zoo-handler-build"
+        # },
+        # {
+        #   "if": "event == 'build-succeed' && repo == 'atest2' && owner == 'jvalkeal'",
+        #   "owner": "jvalkeal",
+        #   "repo": "atest1",
+        #   "event_type": "build-zoo-handler-build"
+        # }
+
+
+        # [
+        #   {
+        #     "default": true,
+        #     "owner": "jvalkeal",
+        #     "repo": "atest4",
+        #     "event_type": "build-zoo-handler-build"
+        #   },
+        #   {
+        #     "on_event": "build-succeed",
+        #     "on_owner": "jvalkeal",
+        #     "on_repo": "atest4",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest3",
+        #     "event_type": "build-zoo-handler-build"
+        #   },
+        #   {
+        #     "on_event": "build-succeed",
+        #     "on_owner": "jvalkeal",
+        #     "on_repo": "atest3",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest2",
+        #     "event_type": "build-zoo-handler-build"
+        #   },
+        #   {
+        #     "if": "event == 'build-succeed' && repo == 'atest'2 && owner == 'jvalkeal'",
+        #     "on_event": "build-succeed",
+        #     "on_owner": "jvalkeal",
+        #     "on_repo": "atest2",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest1",
+        #     "event_type": "build-zoo-handler-build"
+        #   }
+        # ]
