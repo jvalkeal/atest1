@@ -2,15 +2,15 @@ name: Release Train Test1
 
 on:
   workflow_dispatch:
-    inputs:
-      prop21:
-        description: 'prop21'
-        required: false
-        default: 'val21'
-      prop41:
-        description: 'prop41'
-        required: false
-        default: 'val41'
+    # inputs:
+    #   prop21:
+    #     description: 'prop21'
+    #     required: false
+    #     default: 'val21'
+    #   prop41:
+    #     description: 'prop41'
+    #     required: false
+    #     default: 'val41'
   repository_dispatch:
     types: [build-zoo-handler-control]
 
@@ -19,16 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+    # - name: Dump GitHub context
+    #   env:
+    #     GITHUB_CONTEXT: ${{ toJson(github) }}
+    #   run: echo "$GITHUB_CONTEXT"
 
-    - name: Do Something
-      id: extract
-      env:
-        PROP21: ${{ github.event.inputs.prop21 }}
-      run: echo ::set-output name=PROP21::${PROP21:-val21}
+    # - name: Do Something
+    #   id: extract
+    #   env:
+    #     PROP21: ${{ github.event.inputs.prop21 }}
+    #   run: echo ::set-output name=PROP21::${PROP21:-val21}
 
     - name: Handle Zoo Control
       uses: jvalkeal/build-zoo-handler@gh7-work1
