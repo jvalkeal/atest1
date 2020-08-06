@@ -37,7 +37,7 @@ jobs:
         dispatch-handler-config: >
           [
             {
-              "if": "default == true",
+              "if": "initial == true",
               "owner": "jvalkeal",
               "repo": "atest4",
               "event_type": "build-zoo-handler-build"
