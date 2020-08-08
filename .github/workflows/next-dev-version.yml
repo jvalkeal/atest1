@@ -50,7 +50,11 @@ jobs:
           versions:set-property \
           -DgenerateBackupPoms=false \
           -Dproperty=demo2.version \
-          -DnewVersion=$BUILD_ZOO_HANDLER_atest2_version
+          -DnewVersion=$BUILD_ZOO_HANDLER_atest2_version \
+          versions:set-property \
+          -DgenerateBackupPoms=false \
+          -Dproperty=demo4.version \
+          -DnewVersion=$BUILD_ZOO_HANDLER_atest4_version
         jfrog rt mvn -U -B clean install -DskipTests
         echo ::set-env name=BUILD_ZOO_HANDLER_atest1_version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
 
