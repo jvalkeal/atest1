@@ -11,33 +11,80 @@ jobs:
     steps:
 
     - name: Handle Zoo Control
-      uses: jvalkeal/build-zoo-handler@v0.0.1
+      uses: jvalkeal/build-zoo-handler@gh11-work1
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
           [
             {
               "if": "initial == true",
-              "owner": "jvalkeal",
-              "repo": "atest4",
-              "event_type": "build-zoo-handler-release"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest4",
+                "event_type": "build-zoo-handler-release"
+              }
             },
             {
               "if": "data.event == 'release-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest3",
-              "event_type": "build-zoo-handler-release"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest3",
+                "event_type": "build-zoo-handler-release"
+              }
             },
             {
               "if": "data.event == 'release-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest2",
-              "event_type": "build-zoo-handler-release"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest2",
+                "event_type": "build-zoo-handler-release"
+              }
             },
             {
               "if": "data.event == 'release-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest1",
-              "event_type": "build-zoo-handler-release"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest1",
+                "event_type": "build-zoo-handler-release"
+              }
+            },
+            {
+              "if": "data.event == 'release-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, something went wrong"
+              },
             }
           ]
+
+
+        # [
+        #   {
+        #     "if": "initial == true",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest4",
+        #     "event_type": "build-zoo-handler-release"
+        #   },
+        #   {
+        #     "if": "data.event == 'release-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest3",
+        #     "event_type": "build-zoo-handler-release"
+        #   },
+        #   {
+        #     "if": "data.event == 'release-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest2",
+        #     "event_type": "build-zoo-handler-release"
+        #   },
+        #   {
+        #     "if": "data.event == 'release-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
+        #     "owner": "jvalkeal",
+        #     "repo": "atest1",
+        #     "event_type": "build-zoo-handler-release"
+        #   },
+        # ]

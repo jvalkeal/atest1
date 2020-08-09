@@ -16,28 +16,48 @@ jobs:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
           [
+
             {
               "if": "initial == true",
-              "owner": "jvalkeal",
-              "repo": "atest4",
-              "event_type": "build-zoo-handler-next-dev-version"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest4",
+                "event_type": "build-zoo-handler-next-dev-version"
+              }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest3",
-              "event_type": "build-zoo-handler-next-dev-version"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest3",
+                "event_type": "build-zoo-handler-next-dev-version"
+              }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest2",
-              "event_type": "build-zoo-handler-next-dev-version"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest2",
+                "event_type": "build-zoo-handler-next-dev-version"
+              }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
-              "owner": "jvalkeal",
-              "repo": "atest1",
-              "event_type": "build-zoo-handler-next-dev-version"
+              "action": "repository_dispatch",
+              "repository_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest1",
+                "event_type": "build-zoo-handler-next-dev-version"
+              }
+            },
+            {
+              "if": "data.event == 'next-dev-version-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, something went wrong"
+              },
             }
           ]
