@@ -16,7 +16,6 @@ jobs:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
           [
-
             {
               "if": "initial == true",
               "action": "repository_dispatch",
@@ -58,6 +57,6 @@ jobs:
               "action": "fail",
               "fail": {
                 "message": "hi, something went wrong"
-              },
+              }
             }
           ]
