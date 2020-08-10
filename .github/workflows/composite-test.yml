@@ -1,4 +1,4 @@
-name: Test Workflow Dispatch
+name: Composite Test
 
 on:
   workflow_dispatch:
