@@ -1,0 +1,13 @@
+name: Test Workflow Dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: jvalkeal/atest2/.github/actions/composite-test1@master
+      with: 
+        name: FooBar
+
