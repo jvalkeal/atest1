@@ -1,0 +1,74 @@
+name: Release Train 1.3.x
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-zoo-handler:
+        description: 'Build Zoo Handler Payload'
+        required: false
+  repository_dispatch:
+    types: [build-zoo-handler-control-release-13x]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Handle Zoo Control
+      uses: jvalkeal/build-zoo-handler@gh13-work1
+      with:
+        dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        dispatch-handler-config: >
+          [
+            {
+              "if": "initial == true",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest4",
+                "ref": "1.0.x",
+                "workflow": "release-10x.yml",
+                "event_type": "build-zoo-handler-release-13x"
+              }
+            },
+            {
+              "if": "data.event == 'release-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest3",
+                "ref": "1.1.x",
+                "workflow": "release-11x.yml",
+                "event_type": "build-zoo-handler-release-13x"
+              }
+            },
+            {
+              "if": "data.event == 'release-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest2",
+                "ref": "1.2.x",
+                "workflow": "release-12x.yml",
+                "event_type": "build-zoo-handler-release-13x"
+              }
+            },
+            {
+              "if": "data.event == 'release-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest1",
+                "ref": "1.3.x",
+                "workflow": "release-13x.yml",
+                "event_type": "build-zoo-handler-release-13x"
+              }
+            },
+            {
+              "if": "data.event == 'release-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, something went wrong"
+              }
+            }
+          ]
