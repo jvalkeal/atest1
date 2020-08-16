@@ -31,7 +31,7 @@ jobs:
               }
             },
             {
-              "if": "data.event == 'release-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
+              "if": "data.event == 'build-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
               "action": "workflow_dispatch",
               "workflow_dispatch": {
                 "owner": "jvalkeal",
@@ -41,7 +41,7 @@ jobs:
               }
             },
             {
-              "if": "data.event == 'release-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
+              "if": "data.event == 'build-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
               "action": "workflow_dispatch",
               "workflow_dispatch": {
                 "owner": "jvalkeal",
@@ -51,7 +51,7 @@ jobs:
               }
             },
             {
-              "if": "data.event == 'release-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
+              "if": "data.event == 'build-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
               "action": "workflow_dispatch",
               "workflow_dispatch": {
                 "owner": "jvalkeal",
@@ -61,7 +61,7 @@ jobs:
               }
             },
             {
-              "if": "data.event == 'release-failed'",
+              "if": "data.event == 'build-failed'",
               "action": "fail",
               "fail": {
                 "message": "hi, something went wrong"
