@@ -49,7 +49,7 @@ jobs:
 
     # zoo success
     - name: Notify Build Success Zoo Handler Controller
-      uses: jvalkeal/build-zoo-handler@main
+      uses: jvalkeal/build-zoo-handler@gh13-work1
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-owner: jvalkeal
