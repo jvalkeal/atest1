@@ -26,7 +26,7 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest4",
-                "ref": "1.0.x",
+                "ref": "master",
                 "workflow": "release-10x.yml"
               }
             },
@@ -36,7 +36,7 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest3",
-                "ref": "1.1.x",
+                "ref": "master",
                 "workflow": "release-11x.yml"
               }
             },
@@ -46,7 +46,7 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest2",
-                "ref": "1.2.x",
+                "ref": "master",
                 "workflow": "release-12x.yml"
               }
             },
@@ -56,7 +56,7 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest1",
-                "ref": "1.3.x",
+                "ref": "master",
                 "workflow": "release-13x.yml"
               }
             },
