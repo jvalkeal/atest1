@@ -1,4 +1,4 @@
-name: Build Master Snapshot
+name: Train Build Master Snapshot
 
 on:
   workflow_dispatch:
