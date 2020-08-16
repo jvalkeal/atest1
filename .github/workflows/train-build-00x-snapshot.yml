@@ -1,0 +1,70 @@
+name: Train Build 0.0.x Snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-zoo-handler:
+        description: 'Build Zoo Handler Payload'
+        required: false
+  repository_dispatch:
+    types: [build-zoo-handler-control-release-13x]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Handle Zoo Control
+      uses: jvalkeal/build-zoo-handler@gh13-work1
+      with:
+        dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        dispatch-handler-config: >
+          [
+            {
+              "if": "initial == true",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest4",
+                "ref": "0.1.x",
+                "workflow": "build-01x-snapshot.yml"
+              }
+            },
+            {
+              "if": "data.event == 'build-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest3",
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
+              }
+            },
+            {
+              "if": "data.event == 'build-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest2",
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
+              }
+            },
+            {
+              "if": "data.event == 'build-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest1",
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
+              }
+            },
+            {
+              "if": "data.event == 'build-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, something went wrong"
+              }
+            }
+          ]
