@@ -1,4 +1,4 @@
-name: Train Build Master Snapshot
+name: Train Build 0.0.x Snapshot
 
 on:
   workflow_dispatch:
@@ -26,8 +26,8 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest4",
-                "ref": "master",
-                "workflow": "build-master-snapshot.yml"
+                "ref": "0.1.x",
+                "workflow": "build-01x-snapshot.yml"
               }
             },
             {
@@ -36,8 +36,8 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest3",
-                "ref": "master",
-                "workflow": "build-master-snapshot.yml"
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
               }
             },
             {
@@ -46,8 +46,8 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest2",
-                "ref": "master",
-                "workflow": "build-master-snapshot.yml"
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
               }
             },
             {
@@ -56,8 +56,8 @@ jobs:
               "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest1",
-                "ref": "master",
-                "workflow": "build-master-snapshot.yml"
+                "ref": "0.0.x",
+                "workflow": "build-00x-snapshot.yml"
               }
             },
             {
