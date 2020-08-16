@@ -27,7 +27,7 @@ jobs:
                 "owner": "jvalkeal",
                 "repo": "atest4",
                 "ref": "0.1.x",
-                "workflow": "build-01x-snapshot.yml"
+                "workflow": "build-master-snapshot.yml"
               }
             },
             {
@@ -37,7 +37,7 @@ jobs:
                 "owner": "jvalkeal",
                 "repo": "atest3",
                 "ref": "0.0.x",
-                "workflow": "build-00x-snapshot.yml"
+                "workflow": "build-master-snapshot.yml"
               }
             },
             {
@@ -47,7 +47,7 @@ jobs:
                 "owner": "jvalkeal",
                 "repo": "atest2",
                 "ref": "0.0.x",
-                "workflow": "build-00x-snapshot.yml"
+                "workflow": "build-master-snapshot.yml"
               }
             },
             {
@@ -57,7 +57,7 @@ jobs:
                 "owner": "jvalkeal",
                 "repo": "atest1",
                 "ref": "0.0.x",
-                "workflow": "build-00x-snapshot.yml"
+                "workflow": "build-master-snapshot.yml"
               }
             },
             {
