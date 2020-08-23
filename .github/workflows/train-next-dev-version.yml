@@ -2,8 +2,10 @@ name: Switch Train to Next Dev Version
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [build-zoo-handler-control-next-dev-version]
+    inputs:
+      build-zoo-handler:
+        description: 'Build Zoo Handler Payload'
+        required: false
 
 jobs:
   build:
@@ -18,38 +20,42 @@ jobs:
           [
             {
               "if": "initial == true",
-              "action": "repository_dispatch",
-              "repository_dispatch": {
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest4",
-                "event_type": "build-zoo-handler-next-dev-version"
+                "ref": "master",
+                "workflow": "next-dev-version.yml"
               }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest4' && data.owner == 'jvalkeal'",
-              "action": "repository_dispatch",
-              "repository_dispatch": {
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest3",
-                "event_type": "build-zoo-handler-next-dev-version"
+                "ref": "master",
+                "workflow": "next-dev-version.yml"
               }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest3' && data.owner == 'jvalkeal'",
-              "action": "repository_dispatch",
-              "repository_dispatch": {
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest2",
-                "event_type": "build-zoo-handler-next-dev-version"
+                "ref": "master",
+                "workflow": "next-dev-version.yml"
               }
             },
             {
               "if": "data.event == 'next-dev-version-succeed' && data.repo == 'atest2' && data.owner == 'jvalkeal'",
-              "action": "repository_dispatch",
-              "repository_dispatch": {
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
                 "owner": "jvalkeal",
                 "repo": "atest1",
-                "event_type": "build-zoo-handler-next-dev-version"
+                "ref": "master",
+                "workflow": "next-dev-version.yml"
               }
             },
             {

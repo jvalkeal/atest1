@@ -6,8 +6,6 @@ on:
       build-zoo-handler:
         description: 'Build Zoo Handler Payload'
         required: false
-  repository_dispatch:
-    types: [build-zoo-handler-control-release-13x]
 
 jobs:
   build:
