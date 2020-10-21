@@ -6,6 +6,9 @@ on:
       build-zoo-handler:
         description: 'Build Zoo Handler Payload'
         required: false
+      build-zoo-handler-properties:
+        description: 'Build Zoo Handler Initial Properties'
+        required: false
 
 jobs:
   build:
@@ -13,7 +16,7 @@ jobs:
     steps:
 
     - name: Handle Zoo Control
-      uses: jvalkeal/build-zoo-handler@v0.0.3
+      uses: jvalkeal/build-zoo-handler@gh19
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
