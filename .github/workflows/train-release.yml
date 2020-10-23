@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       build-zoo-handler:
-        description: 'Build Zoo Handler Payload'
+        description: 'Build Zoo Handler Payload (keep this empty)'
         required: false
       build-zoo-handler-properties:
-        description: 'Build Zoo Handler Initial Properties extra long desc  extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc'
+        description: 'Build Zoo Handler Initial Properties (optional version postfix as key/value list, atest1_version_postfix=-M1,atest2_version_postfix=M2 or if all same zoo_common_version_postfix=-M3)'
         required: false
 
 jobs:
