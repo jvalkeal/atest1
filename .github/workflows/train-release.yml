@@ -7,7 +7,7 @@ on:
         description: 'Build Zoo Handler Payload'
         required: false
       build-zoo-handler-properties:
-        description: 'Build Zoo Handler Initial Properties'
+        description: 'Build Zoo Handler Initial Properties extra long desc  extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc extra long desc'
         required: false
 
 jobs:
