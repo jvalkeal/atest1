@@ -15,7 +15,7 @@ jobs:
     steps:
 
     - name: Handle Zoo Control
-      uses: jvalkeal/build-zoo-handler@v0.0.3
+      uses: jvalkeal/build-zoo-handler@v0.0.4
       with:
         dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
         dispatch-handler-config: >
