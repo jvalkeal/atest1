@@ -41,16 +41,6 @@ jobs:
         jfrog rt build-promote $BUILD_ZOO_HANDLER_atest2_buildname $BUILD_ZOO_HANDLER_atest2_buildnumber libs-release-local
         jfrog rt build-promote $BUILD_ZOO_HANDLER_atest1_buildname $BUILD_ZOO_HANDLER_atest1_buildnumber libs-release-local
 
-    # zoo success
-    - name: Notify Build Success Zoo Handler Controller
-      uses: jvalkeal/build-zoo-handler@v0.0.4
-      with:
-        dispatch-handler-token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        dispatch-handler-client-payload-data: >
-          {
-            "event": "promotion-succeed"
-          }
-
     # zoo failure
     - name: Notify Build Failure Zoo Handler Controller
       if: ${{ failure() }}
