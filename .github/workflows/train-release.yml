@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
 
     - name: Handle Zoo Control
@@ -62,10 +62,34 @@ jobs:
               }
             },
             {
+              "if": "data.event == 'release-succeed' && data.repo == 'atest1' && data.owner == 'jvalkeal'",
+              "action": "workflow_dispatch",
+              "workflow_dispatch": {
+                "owner": "jvalkeal",
+                "repo": "atest1",
+                "ref": "master",
+                "workflow": "promote.yml"
+              }
+            },
+            {
               "if": "data.event == 'release-failed'",
               "action": "fail",
               "fail": {
-                "message": "hi, something went wrong"
+                "message": "hi, release failed"
+              }
+            },
+            {
+              "if": "data.event == 'promotion-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, artifactory promotion failed"
+              }
+            },
+            {
+              "if": "data.event == 'central-failed'",
+              "action": "fail",
+              "fail": {
+                "message": "hi, central sync"
               }
             }
           ]
