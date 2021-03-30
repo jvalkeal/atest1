@@ -101,7 +101,7 @@ jobs:
           --spec .github/release-files-spec.json \
           --spec-vars "buildname=$BUILD_ZOO_HANDLER_atest1_buildname;buildnumber=$BUILD_ZOO_HANDLER_atest1_buildnumber"
     # last step, sync to central.
-    - uses: jvalkeal/nexus-sync@main
+    - uses: jvalkeal/nexus-sync@filesize
       with:
         url: http://localhost:8082/nexus
         username: ${{ secrets.NEXUS_USERNAME }}
